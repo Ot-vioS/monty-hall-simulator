@@ -343,7 +343,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* Para algumas telas de notebook que são um pouco menores*/
-@media (height <= 600px) {
+@media (height <= 700px) {
     p, label {
         font-size: 12px;
     }
