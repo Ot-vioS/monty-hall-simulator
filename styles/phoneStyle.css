@@ -1,4 +1,4 @@
-@media (orientation: portrait) and (width <= 768px) {
+@media (orientation: portrait), (width <= 768px) {
     body {
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr auto;
@@ -10,7 +10,7 @@
     }
 
     p, label {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .title {
@@ -23,18 +23,36 @@
         --door-height: 265px;
     }
 
+    .doors-container::-webkit-scrollbar {
+        width: 10px;
+    }
+
     .statistics-container {
         flex-direction: row;
+        overflow-y: hidden;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
     }
 
     .statistics {
-        width: 50%;
+        scroll-snap-align: start;
+        min-width: calc(100% - 10px);
         height: 100%;
         grid-template-columns: 3fr 1fr;
+        grid-template-rows: auto 1fr 15%;
+    }
+
+    .reset-button {
+        width: 60px;
+        height: 30px;
+        font-size: 12px;
     }
 
     .statistics-configs {
-        width: 50%;
+        scroll-snap-align: start;
+        min-width: calc(100% - 10px);
         height: 100%;
+        grid-template-rows: auto 1fr 20% 15%;
     }
 }

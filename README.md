@@ -51,6 +51,8 @@ The logic is modularized using **ES6 Modules** (`type="module"`), split into 6 s
 
 #### Automatic Mode (To Analyze Trends)
 1. In the settings panel, adjust the number of doors and the time interval (down to 10ms).
+> [!WARNING]
+> **Photosensitivity Alert:** Running the automatic mode with very low intervals (e.g., 10ms) creates rapid, high-frequency flashing colors on the screen. Please use with caution if you are sensitive to flashing lights.
 2. Activate the automatic mode. The computer will start playing by itself repeatedly.
 3. Watch the magic of math happen: the more games the robot runs, the closer the statistics get to the exact precision of the paradox's real probabilities!
 *Note: Door settings are locked during automatic simulation to prevent data corruption.*
@@ -106,6 +108,8 @@ A lógica é modularizada utilizando **ES6 Modules** (`type="module"`), dividida
 
 #### Modo Automático (Para Analisar Tendências)
 1. No painel de configurações, ajuste o número de portas e o intervalo de tempo (até 10ms).
+> [!WARNING]
+> **Alerta de Fotossensibilidade:** Executar o modo automático com intervalos muito baixos (ex: 10ms) cria flashes rápidos de cores na tela em alta frequência. Use com cautela se você for sensível a luzes piscantes.
 2. Ative o modo automático. O computador começará a jogar sozinho repetidamente.
 3. Observe a mágica da matemática acontecer: quanto mais jogos o robô roda, mais as estatísticas se aproximam com precisão exata das probabilidades reais do paradoxo!
 *Nota: Configurações de portas ficam travadas durante a simulação automática para não corromper os dados estatísticos.*
