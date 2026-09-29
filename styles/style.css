@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 25%;
+    grid-template-rows: auto 1fr;
+
+    grid-template-areas:
+    "header   header"
+    "doors  statistics";
+
+    background-color: rgb(32, 39, 53);
+}
+
+.title-container{
+    grid-area: header;
+    width: 100%;
+    background-color: black;
+}
+
+.title{
+    text-align: center;
+    color: crimson;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+    margin: 0;
+    padding: 4vh 0;
+}
+
+.doors-container{
+    /*
+    Define o tamanho máximo da porta
+    */
+    --door-width: 225px;
+    --door-height: 300px;
+    position: relative;
+    grid-area: doors;
+    padding: 5%;
+    height: 100%;
+    display: grid;
+    overflow-y: auto;
+    overflow-x: hidden;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    align-items: center;
+    justify-items: center;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, var(--door-width));
+    grid-auto-rows: calc(25px + var(--door-height));
+}
+
+.round-instructions {
+    position: absolute;
+    width: 100%;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: default;
+    text-align: center;
+}
+
+.door-template {
+    display: none;
+}
+
+.door{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.door-drawing {
+    /*
+    (200, 220) - Azul
+    (0, 0)     - Vermelho
+    (80, 110)  - Verde
+    */
+    --hue: 200;
+    --detail-hue: 220;
+
+    --saturation-increase: 0%;
+    --lighting-increase: 0%;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: 
+    hsl(
+        var(--hue),
+        calc(71% + var(--saturation-increase)),
+        calc(73% + var(--lighting-increase))
+    );
+    
+    border-radius: 10px;
+}
+
+.door-drawing:hover {
+    cursor: pointer;
+}
+
+.door-detail {
+    position: absolute;
+    background-color: 
+    hsl(
+        var(--detail-hue),
+        calc(79% + var(--saturation-increase)),
+        calc(66% + var(--lighting-increase))
+    );
+}
+
+.door-lock {
+    width: 10%;
+    height: 7.5%;
+    right: 10%;
+    top: 50%;
+    border-radius: 100%;
+}
+
+.door-upper-detail {
+    width: 75%;
+    height: 25%;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+.door-inline {
+    width: 90%;
+    height: 92%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    outline: 2px solid hsl(var(--detail-hue), calc(79% + var(--saturation-increase)), calc(66% + var(--lighting-increase)));
+    background-color: transparent;
+}
+
+.door-index {
+    margin-top: 5px;
+    cursor: default;
+}
+
+.statistics-container{
+    grid-area: statistics;
+    height: 100%;
+    outline: 2px solid black;
+    box-shadow: 0 0 20px 2px black;
+    display: flex;
+    flex-direction: column;
+}
+
+.statistics {
+    width: 100%;
+    height: 50%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr 20%;
+    
+    grid-template-areas:
+    "title              title"
+    "statistics-names   statistics-results"
+    "reset-button       reset-button";
+
+    justify-items: center;
+    align-items: center;
+}
+
+.statistics-title {
+    grid-area: title;
+    margin: 10px 0 0 0;
+}
+
+.statistics-names {
+    grid-area: statistics-names;
+}
+
+.statistics-results {
+    grid-area: statistics-results;
+    justify-self: start;
+}
+
+.reset-statistics {
+    grid-area: reset-button;
+    align-self: start;
+}
+
+.reset-button {
+    width: 80px;
+    height: 40px;
+    background-color: darkred;
+    border-style: none;
+    border-radius: 20px;
+}
+
+.reset-button:hover {
+    cursor: pointer;
+    outline: 1px solid white;
+}
+
+.statistics-configs {
+    width: 100%;
+    height: 50%;
+    outline: 2px solid black;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 20% 20%;
+
+    grid-template-areas:
+    "title"
+    "door-configs"
+    "auto-play"
+    "reset-button";
+
+    align-items: center;
+    justify-items: center;
+}
+
+.configs-title {
+    grid-area: title;
+    margin: 10px 0 10px 0;
+}
+
+.configs-container {
+    grid-area: door-configs;
+    width: 90%;
+    height: 90%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.config-input-number {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-box {
+    padding: 2px;
+    border-radius: 5px;
+    background-color: rgb(29, 35, 46);
+    border: 2px inset rgb(29, 35, 46);
+    font-size: 20px;
+    height: 25px;
+    width: 40%;
+}
+
+.auto-play-container {
+    grid-area: auto-play;
+    align-self: start;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.switch {
+    position: relative;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: gray;
+    border-radius: 34px;
+    transition: 0.1s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    width: 26px;
+    height: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.1s;
+}
+
+.switch input:checked + .slider {
+    background-color: #4caf50;
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.reset-configs {
+    grid-area: reset-button;
+    align-self: start;
+}

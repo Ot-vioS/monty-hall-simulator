@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.H.S.</title>
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/phoneStyle.css">
+</head>
+<body>
+    <header class="title-container">
+        <h1 class="title">MONTY HALL SIMULATOR</h1>
+    </header>
+    <section class="doors-container" id="doors-container">
+        <h2 class="round-instructions" id="round-instructions">Choose a door...</h2>
+        <div class="door-template" id="door-template">
+            <div class="door" data-id="0">
+                <div class="door-drawing">
+                    <div class="door-lock door-detail">
+
+                    </div>
+                    <div class="door-upper-detail door-detail">
+
+                    </div>
+                    <div class="door-inline door-detail">
+
+                    </div>
+                </div>
+                <p class="door-index"></p>
+            </div>
+        </div>
+    </section>
+    <section class="statistics-container">
+        <section class="statistics">
+            <h2 class="statistics-title">Statistics</h2>
+            <section class="statistics-names">
+                <p>Total rounds: </p>
+                <p>First-guess successes: </p>
+                <p>Swap-guess rounds: </p>
+                <p>Swap-guess successes: </p>
+                <p>Keep-guess rounds: </p>
+                <p>Keep-guess successes: </p>
+                <p>Total successes: </p>
+                <p>Success rate: </p>
+                <p>First-guess success rate: </p>
+                <p>Swap-guess success rate: </p>
+                <p>Keep-guess success rate: </p>
+            </section>
+            <section class="statistics-results">
+                <p id="total-rolls"              >0</p>
+                <p id="first-guesses"            >0</p>
+                <p id="rolls-with-change"        >0</p>
+                <p id="guesses-with-change"      >0</p>
+                <p id="rolls-without-change"     >0</p>
+                <p id="guesses-without-change"   >0</p>
+                <p id="total-guesses"            >0</p>
+                <p id="guess-rate"               >0%</p>
+                <p id="first-guess-rate"         >0%</p>
+                <p id="with-change-guess-rate"   >0%</p>
+                <p id="without-change-guess-rate">0%</p>
+            </section>
+            <button type="button" class="reset-statistics reset-button">Reset statistics</button>
+        </section>
+        <section class="statistics-configs">
+            <h2 class="configs-title">Configurations</h2>
+            <fieldset class="configs-container">
+                <legend></legend>
+                <div class="max-doors-container config-input-number">
+                    <label for="max-doors">Door number:</label>
+                    <input type="number"
+                    data-last-number="3"
+                    id="max-doors"
+                    min="3"
+                    value="3"
+                    class="input-box">
+                </div>
+                <div class="doors-to-show-container config-input-number">
+                    <label for="doors-to-show">Doors to be shown:</label>
+                    <input type="number"
+                    data-last-number="1"
+                    id="doors-to-show"
+                    min="0"
+                    max="1"
+                    value="1"
+                    class="input-box">
+                </div>
+                <div class="auto-play-speed-container config-input-number">
+                    <label for="auto-play-speed">Auto-Play Interval(ms):</label>
+                    <input type="number"
+                    data-last-number="100"
+                    id="auto-play-speed"
+                    min="10"
+                    value="100"
+                    class="input-box">
+                </div>
+            </fieldset>
+            <div class="auto-play-container">
+                <p>Auto Play:</p>
+                <label for="auto-play" class="switch">
+                    <input type="checkbox" id="auto-play">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <button type="button" class="reset-configs reset-button">Reset configs</button>
+        </section>
+    </section>
+
+    <script type="module" src="scripts/main.js" defer></script>
+</body>
+</html>

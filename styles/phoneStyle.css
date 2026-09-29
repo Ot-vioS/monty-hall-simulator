@@ -1,0 +1,40 @@
+@media (orientation: portrait) and (width <= 768px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+
+        grid-template-areas: 
+        "header"
+        "doors"
+        "statistics";
+    }
+
+    p, label {
+        font-size: 14px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .doors-container {
+        padding: 25% 5% 5% 5%;
+        --door-width: 200px;
+        --door-height: 265px;
+    }
+
+    .statistics-container {
+        flex-direction: row;
+    }
+
+    .statistics {
+        width: 50%;
+        height: 100%;
+        grid-template-columns: 3fr 1fr;
+    }
+
+    .statistics-configs {
+        width: 50%;
+        height: 100%;
+    }
+}
